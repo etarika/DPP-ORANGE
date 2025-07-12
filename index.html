@@ -2,44 +2,37 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Fiches Atelier – ESG</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fiches Atelier</title>
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: Arial, sans-serif;
-      background: #fff;
-    }
-    .logo-zone {
-      background-color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    .logo-zone img {
-      height: 48px;
-    }
-    .header {
-      background-color: #f47b20;
-      height: 12px;
-    }
     iframe {
       width: 100%;
-      height: calc(100vh - 80px);
+      height: 800px;
       border: none;
     }
   </style>
 </head>
 <body>
 
-  <div class="logo-zone">
-    <img src="Logo_Orange_clean.svg" alt="Orange">
-  </div>
+  <h2>Fiches Atelier - Orange</h2>
 
-  <div class="header"></div>
+  <iframe
+    id="frameAtelier"
+    src="https://script.google.com/a/macros/altermondo.com/s/AKfycbycFZgm2DwUc6MJ6_VrZXCJPRpLL0WiO4x8SRlnPLzEdibz85fJ-DuF494M_SteGIl7Mg/exec"
+    allow="fullscreen"
+  ></iframe>
 
-  <iframe src="https://script.google.com/macros/s/AKfycbycFZgm2DwUc6MJ6_VrZXCJPRpLL0WiO4x8SRlnPLzEdibz85fJ-DuF494M_SteGIl7Mg/exec"></iframe>
+  <script>
+    window.addEventListener("message", function(event) {
+      // Optionnel : vérifie que ça vient de Apps Script
+      if (!event.origin.includes("script.google.com")) return;
+
+      if (event.data.type === "chargerFiche") {
+        const id = event.data.id;
+        const url = `https://script.google.com/a/macros/altermondo.com/s/AKfycbycFZgm2DwUc6MJ6_VrZXCJPRpLL0WiO4x8SRlnPLzEdibz85fJ-DuF494M_SteGIl7Mg/exec?id=${id}`;
+        document.getElementById("frameAtelier").src = url;
+      }
+    });
+  </script>
 
 </body>
 </html>
