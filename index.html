@@ -2,37 +2,59 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Fiches Atelier</title>
+  <title>Fiches Atelier – ESG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      background-color: white;
+      border-bottom: 3px solid #f47b20;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header img {
+      height: 42px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #f47b20;
+      margin-left: 16px;
+    }
+
+    .iframe-container {
+      height: calc(100vh - 72px); /* header height */
+    }
+
     iframe {
       width: 100%;
-      height: 800px;
+      height: 100%;
       border: none;
     }
   </style>
 </head>
 <body>
 
-  <h2>Fiches Atelier - Orange</h2>
+  <div class="header">
+    <div>
+      <img src="Logo_Orange_clean.svg" alt="Orange">
+    </div>
+    <div class="title">Fiches Atelier – ESG</div>
+  </div>
 
-  <iframe
-    id="frameAtelier"
-    src="https://script.google.com/a/macros/altermondo.com/s/AKfycbycFZgm2DwUc6MJ6_VrZXCJPRpLL0WiO4x8SRlnPLzEdibz85fJ-DuF494M_SteGIl7Mg/exec"
-    allow="fullscreen"
-  ></iframe>
-
-  <script>
-    window.addEventListener("message", function(event) {
-      // Optionnel : vérifie que ça vient de Apps Script
-      if (!event.origin.includes("script.google.com")) return;
-
-      if (event.data.type === "chargerFiche") {
-        const id = event.data.id;
-        const url = `https://script.google.com/a/macros/altermondo.com/s/AKfycbycFZgm2DwUc6MJ6_VrZXCJPRpLL0WiO4x8SRlnPLzEdibz85fJ-DuF494M_SteGIl7Mg/exec?id=${id}`;
-        document.getElementById("frameAtelier").src = url;
-      }
-    });
-  </script>
+  <div class="iframe-container">
+    <iframe src="https://script.google.com/macros/s/AKfycbxGX7_A0PYXvjqo949nJ86syqRAneSQ37IWsreQULhu3Ia71gFg_cSLnOltJQMG6usiCA/exec"></iframe>
+  </div>
 
 </body>
 </html>
